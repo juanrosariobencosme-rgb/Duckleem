@@ -1,0 +1,6 @@
+{
+  "name": "Boutique Manager",
+  "description": "High-velocity client boutique retail commerce, visual inventory and collection receivables console.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

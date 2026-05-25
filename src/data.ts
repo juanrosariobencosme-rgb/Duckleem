@@ -1,0 +1,268 @@
+import { Product, Invoice } from './types';
+
+export const INITIAL_PRODUCTS: Product[] = [
+  {
+    id: 'AP-2042',
+    name: 'Cashmere Sweater',
+    price: 249.00,
+    originalPrice: 299.00,
+    stock: 12,
+    category: 'Abrigos',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCur1UuPgjC1nerueFOllD8XDGQ3PC7MB2WOlL1UL3oJddldfG9MXNuEGZyn70V-xCmI9MB2BU0iov_T_0P6Ok-qZ_ulA-yGmXSXtnFSWaxF0BtrNAEb2GXcaNalxqnCbg6jdXKTX4KNwnmnz70jaK2SYcuq0CFbqsieSrx_L2oE-UHuZLHFJrG3CGU3jCwUPpRrpLlbcZTITNt5xXwart4rc8oJfdI4a5a3ytiUToOyoq14H6AbzIo-neZenoCY0QCTqHvI4FOFtY',
+    criticalLimit: 5,
+  },
+  {
+    id: 'FT-991',
+    name: 'Leather Braided Bracelet',
+    price: 180.00,
+    originalPrice: 220.00,
+    stock: 24,
+    category: 'Pulseras',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIWCfMtSERX96_RPJTUDr4iTSDHrD3OMcvN6JFB-Sgf8-9cqiHiKpLDN-VPmsaq1WrA2gvUIdiBwINMh0b1M-vdTx0ydbrHAsYsjW-juM4C7SEc_GTrMI-XpeGnjqTVggNywyCiHRRBpGQa8hhZWSGlMD8otbSfffY4T_92wP8UJmzqR5nVwevkWhdMqn_kYpvQQ5hKcFrt4tRB-CNZIMJJBs4cYmkHblkTK8xScv1R-NY5DxP5EHS84Ny-9zNZJPl0z8-2I38CpU',
+    criticalLimit: 5,
+  },
+  {
+    id: 'AC-402',
+    name: 'Silk Evening Scarf',
+    price: 125.00,
+    originalPrice: 150.00,
+    stock: 28,
+    category: 'Gorras',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuQIvMoq_Z2QL-TuROOU17fDhytaNtuhZHonB2nyTEySClcGL2MaFi1SC9NNt5vDyeqEV08I132u0GuNWr6QSTtLn2MOtTzb54wLWDZSay2zWNJDmxoXCXgyHo386iMAjvFYJN4D72wo22mul2PM5Oq5kVydnK_6aA72XnaAuzHBYG3J6zujrdyiNXLgMEJ4619yo_MMqfmY6pM8nRSC5AjaKdPVjyloVY3UoP3yrt4zNUBoCw2m1Fr857sKM47xX5x_JahT7Nhko',
+    criticalLimit: 10,
+  },
+  {
+    id: 'AC-092',
+    name: 'Minimalist Cuff Bracelet',
+    price: 85.00,
+    originalPrice: 100.00,
+    stock: 15,
+    category: 'Pulseras',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCbGCfwebnAYYBY3WbYuegfjQKdBI9q58gnZh1lEp0m7x8Z4THm0jC1Owa2bpB44RIVWhLk3u18iUS6zSPXajBZ5bUYuPMy6PNuU8t2VzKHOV-IT1aUmSadQK0tF3E9sddx8-dESYD7c3mKz2Zr9DJMnup1rABAVF4S6Aw5cBcBtn1nSeVUYVkvpMhY9PHLPSXwKofbQnhnF3bthMpSSwPuQBWKwpC2R5beMmo5Xdrx8_3_yQ8AHrWaochrz9gy6TunCx3M4GXVF4E',
+    criticalLimit: 5,
+  },
+  {
+    id: 'AP-882',
+    name: 'Architectural Blazer',
+    price: 540.00,
+    originalPrice: 600.00,
+    stock: 6,
+    category: 'Abrigos',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAVM4TUReSBCYdsyZoj8KlE9WCou604yN88mTpufqhmaqTIILY-CQWOrwpoqZ5o42bdr76BeV_7ZKeZbL9n9Q4vOXVlmxAMz0iB0t51JZrLHNqMKS-QeglzYXufkzSVkUwLdUA29ydtRcVIZMPT_ZvIoRFTQTMtiB3H8xZdB4PB8sKPoqCPwHoIO5gDvIWFnZZLfSF5csUPYqcU_DImJss48OO8uLzy_hCoDhxE1M-4DFcODdjO7sd7pScvvcMynf_z7V5iuoT8678',
+    criticalLimit: 3,
+  },
+  {
+    id: 'AC-100',
+    name: 'Gold Link Bracelet',
+    price: 950.00,
+    originalPrice: 1100.00,
+    stock: 2,
+    category: 'Pulseras',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCxYLiqsheRqu216ilSzQNDRazi6zzo4UtbTQ9zRafl7TGUZ_z3B-nBJJm67B9H4nafN8167L4V8G0nsoWFjlrAZCXNapIP-IMtwLFDGpJFeLRDvabchAGPQhXbApB0CnxJIdRFtHxCaDdZrIoHvG5obdWHERmu5AyIxRN3JDRwobLWqc6H0AcxZAIlSD6IWz789o8amvehk39TVT0PCJzJN1KAi-AilgPhjTfCNJ3FUJc87ijPtc9ft4040iJ3gw31q8cgV2zVvhg',
+    criticalLimit: 3,
+  },
+  {
+    id: 'AP-002',
+    name: 'Linen Essential Shirt',
+    price: 89.00,
+    originalPrice: 110.00,
+    stock: 24,
+    category: 'Camisas',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUwScaoErnDDycbwxulNAB8VvMc3dKKH6vUvUexuCy2QqVQJs9jZC35GjmHZKt-7cEy9pa9ihAaw6HzlFPgy2QjDUXj8Nq61mlOAlknHP4ieJFvaGeI_TVr3ZM3Lnuvieel2LGBk_By22dtCW72V6pz-DfVbc9qoq0JIe5YrZaxR1ZwBrJoNDmK-5B-1SMZ_Cz8-bdvJl2LZ3upUCDjQciRtBtgDr6vOGwipVvVGQQaZp6PuROZZ9XeDUO1BOlYJGO-9z2XHYC1So',
+    criticalLimit: 5,
+  },
+  {
+    id: 'AP-111',
+    name: 'Classic Navy Cap',
+    price: 35.00,
+    originalPrice: 45.00,
+    stock: 4,
+    category: 'Gorras',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCGaSLRqhBDEkgGu6j5RbfSFzO5R68s711NShTC-zoHNtsbEdI2jq1UAmVJoSkSnIS5BhoXcr13L2dKx6N89Vm1MMHMarHbdMjoNRT4BDe9P2rsjQjtjsJC6o81D2cGFMgT8X7konDgbfUVeeFM3AjIesGo15D2IELxvP6UmUU0Xf0c8sumdDbDyIj2uoFlSR1DpwfZr0tPwLv8k8-GFDrM1rHGwTFc4f2dZJndsRufRU7A1rtso_2KdlueQozLwSP-sWhwFKjwddc',
+    criticalLimit: 5,
+  },
+  {
+    id: 'AP-333',
+    name: 'Ribbed Knit Crop Top',
+    price: 55.00,
+    originalPrice: 75.00,
+    stock: 15,
+    category: 'Crop-top',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBLAvg3iofavZbN-NWQrnRND0qLuzdm2gMVYJYzDYaI-0a5zn2QuFalzjMDBfabSxdabA1QT-0NME6moChHRnnEQNp2KYGf9oTpdw7bIwjKJtye_QkGZQPXvdV89JQlUKixBzItfOCx1peBc37pDo2_kyPZ6Hb9XlYgCRS9vo8CJfQVe4jdrpRUELgPbnJ_UNaJx7zn3Gl3Qqx70vqBlrz-EXIRg9IMqaAdRNS9C7vpYju_PXbZkQbWusT0LYWqiM5OGOxez_xX_vc',
+    criticalLimit: 5,
+  },
+  {
+    id: 'AP-444',
+    name: 'Graphic Urban Tee',
+    price: 45.00,
+    originalPrice: 60.00,
+    stock: 2,
+    category: 'Camisas',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDKlSMDXFOb6E14h2P9ktPaTUXJMhNUOVuzDQ3i1fJbXHsXOJYskODaa3lFDXft4gVWqEXtB3mJtHtIwybGZQNBE9N3YlpouBw7gOSi8xmnK0MVpF1ccYlEPLE3y2HKhhenY5RdnvIs9dGExql7bjDkvgQxUCD5SSLg8znxTq17rw3W2kRYSPRsrpxJECg-qNAF1xhrrxOIHYuB7gwW2qZGQB3brBWbIlBzDUBvAMs804qrsSQpGn5CME7OXAxlByyiB1TVkHyg5zw',
+    criticalLimit: 5,
+  },
+  {
+    id: 'AP-555',
+    name: 'Athletic Sun Visor',
+    price: 40.00,
+    originalPrice: 50.00,
+    stock: 52,
+    category: 'Gorras',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDuRgChZiHL6iz23kPTCS84yXxO0qQZ8cIsi_s-mvzuqeUkuWMy3AjpxScCMP9YsM1450KU0rjkcoSU7uJ0Z3ZZEc0JvBrjbT8xBnLbmYtqZetpyiPePq-lZC1DNruKZmY6eKsPx3iq-tVlnXvwTr9xtKtI9HOErQwZ2sqT6paGqF6NQTEq6Am7SrlNuLxtTSMeNPoMSOWb6SSSUGIPssgY7Stz87sGPerZl1T4JlNh0MqWTKtIcuF0faAq0bGhHLit6t-b-qk6BNk',
+    criticalLimit: 10,
+  },
+  {
+    id: 'AP-666',
+    name: 'Classic Wool Coat',
+    price: 299.00,
+    originalPrice: 350.00,
+    stock: 8,
+    category: 'Abrigos',
+    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAMlxV-qupKJru-JdxBF9jMJj6zwB1X_dMlW2Spmfl8MDIVH4aNeJRyf4Gg7yHKlVIBAj-RIV2KOjOMevqsWQ0civb9DxLzE271Of7dHtOfuYExYLfQr3gRLoZSmJQEMQDoPtjcCdDxRqMFXxKzxVfuhvoSP32WfcyaXOGpgHgn3BEguLVb-E7ogngc145STclEDDkBj4dmFVTAPS-4DQ2PBokAc-iAtO93AuR-Ugrpas4KVhGH6CM3aBjs4-0I8obnEMrQiIIO7Zc',
+    criticalLimit: 3,
+  },
+  {
+    id: 'DK-2377',
+    name: 'MunnekAmarilla',
+    price: 34.99,
+    originalPrice: 45.00,
+    stock: 10,
+    category: 'Camisas',
+    imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=400',
+    criticalLimit: 2,
+  }
+];
+
+export const INITIAL_INVOICES: Invoice[] = [
+  {
+    id: 'INV-2024-001',
+    customerName: 'Aurelius J. Design',
+    customerAddress: 'Av. Winston Churchill No. 120, El Millon, Santo Domingo',
+    customerPhone: '+1 809-555-0199',
+    customerEmail: 'info@aureliusdesign.com',
+    customerIdentification: 'RNC 131-45678-9',
+    date: '2026-04-12',
+    dueDate: '2026-05-12',
+    description: 'Pedido corporativo de uniformes formales de primavera para personal ejecutivo',
+    items: [
+      { productName: 'Architectural Blazer', price: 540.00, quantity: 20, discount: 0, amount: 10800.00 },
+      { productName: 'Cashmere Sweater', price: 249.00, quantity: 5, discount: 0, amount: 1245.00 },
+      { productName: 'Gold Link Watch', price: 950.00, quantity: 1, discount: 15, amount: 807.50 }
+    ],
+    seller: 'S. Miller',
+    totalAmount: 12450.00,
+    daysOverdue: 124,
+    status: 'Pending',
+    paymentMethod: 'Bank Transfer'
+  },
+  {
+    id: 'INV-2024-089',
+    customerName: 'Celestial Homes',
+    customerAddress: 'Calle Lorenzo Despradel No. 36, Los Prados, Santo Domingo',
+    customerPhone: '+1 829-999-1234',
+    customerEmail: 'contact@celestialhomes.com',
+    customerIdentification: 'RNC 101-88888-2',
+    date: '2026-01-05',
+    dueDate: '2026-02-05',
+    description: 'Adquisición de accesorios dorados premium y abrigos corporativos',
+    items: [
+      { productName: 'Gold Link Watch', price: 950.00, quantity: 45, discount: 5, amount: 40612.50 },
+      { productName: 'Architectural Blazer', price: 540.00, quantity: 10, discount: 10, amount: 4860.00 }
+    ],
+    seller: 'R. Vance',
+    totalAmount: 45000.00,
+    daysOverdue: 32,
+    status: 'Pending',
+    paymentMethod: 'Credit Card'
+  },
+  {
+    id: 'INV-2024-112',
+    customerName: 'Larkin & King',
+    customerAddress: 'Plaza DM, Gustavo Mejia Ricart, Santo Domingo',
+    customerPhone: '+1 809-123-4567',
+    customerEmail: 'billing@larkinking.com',
+    customerIdentification: 'RNC 130-99112-4',
+    date: '2026-02-20',
+    dueDate: '2026-03-20',
+    description: 'Suministro de calzado premium y pañuelos de seda de colección',
+    items: [
+      { productName: 'Leather Chelsea Boots', price: 380.00, quantity: 20, discount: 0, amount: 7600.00 },
+      { productName: 'Silk Evening Scarf', price: 125.00, quantity: 8, discount: 10, amount: 900.00 }
+    ],
+    seller: 'S. Miller',
+    totalAmount: 8230.50,
+    daysOverdue: 14,
+    status: 'Pending',
+    paymentMethod: 'Bank Transfer'
+  },
+  {
+    id: 'INV-2024-156',
+    customerName: 'Vanguard Systems',
+    customerAddress: 'Av. Sarasota No. 89, Bella Vista, Santo Domingo',
+    customerPhone: '+1 809-541-2311',
+    customerEmail: 'accounting@vanguard.com',
+    customerIdentification: 'RNC 122-83749-1',
+    date: '2026-03-02',
+    dueDate: '2026-04-02',
+    description: 'Pedido masivo de camisas de lino para campaña publicitaria',
+    items: [
+      { productName: 'Linen Essential Shirt', price: 89.00, quantity: 200, discount: 10, amount: 16020.00 },
+      { productName: 'Classic Navy Cap', price: 35.00, quantity: 150, discount: 0, amount: 5250.00 },
+      { productName: 'Minimalist Card Holder', price: 85.00, quantity: 10, discount: 5, amount: 807.50 }
+    ],
+    seller: 'J. Chen',
+    totalAmount: 21800.00,
+    daysOverdue: 45,
+    status: 'Pending',
+    paymentMethod: 'Cash'
+  },
+  {
+    id: 'INV-2377',
+    customerName: 'shop Courier',
+    customerAddress: 'Santo Domingo, Distrito Nacional',
+    customerPhone: '+1 809-555-7777',
+    customerEmail: 'courier@shop.dom',
+    customerIdentification: 'ID 001-0000000-0',
+    date: '2026-05-19',
+    dueDate: '2026-05-19',
+    description: 'Venta al detalle de munneca amarilla clásica',
+    items: [
+      { productName: 'MunnekAmarilla', price: 2000.00, quantity: 1, discount: 0, amount: 2000.00 } // Directly representing the RD$ 2,000 MunnekAmarilla item
+    ],
+    seller: 'Alice Sterling',
+    totalAmount: 2000.00,
+    daysOverdue: 0,
+    status: 'Paid',
+    paymentMethod: 'Cash'
+  }
+];
+
+export const INITIAL_OFFERS: any[] = [
+  {
+    id: 'OFF-101',
+    title: 'Especial de Verano en Camisas',
+    discountPercentage: 20,
+    category: 'Camisas',
+    description: 'Ahorra un 20% en toda nuestra exclusiva colección de camisas de lino y de vestir.',
+    imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=400',
+    active: true
+  },
+  {
+    id: 'OFF-102',
+    title: 'Promoción de Temporada: Abrigos',
+    discountPercentage: 15,
+    category: 'Abrigos',
+    description: 'Descuento especial en abrigos gruesos de lana y blazers arquitectónicos de temporada.',
+    imageUrl: 'https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&q=80&w=400',
+    active: true
+  },
+  {
+    id: 'OFF-103',
+    title: 'Pulseras de Cuero en Descuento',
+    discountPercentage: 10,
+    category: 'Pulseras',
+    description: 'Completa tu outfit con nuestras pulseras artesanales de cuero trenzado con un 10% de descuento.',
+    imageUrl: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=400',
+    active: false
+  }
+];
